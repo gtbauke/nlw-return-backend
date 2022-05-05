@@ -24,8 +24,8 @@ export class SubmitFeedbackUseCase {
       throw new Error('Comment is required');
     }
 
-    if (screenshot && !screenshot.startsWith('data:image/png;base64')) {
-      throw new Error('Screenshot must be a base64 encoded PNG');
+    if (screenshot && !screenshot.startsWith('data:image/jpg;base64')) {
+      throw new Error('Screenshot must be a base64 encoded image');
     }
 
     await this.feedbacksRepository.create({ type, comment, screenshot });
